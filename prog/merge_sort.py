@@ -28,12 +28,8 @@ def merge(left, right):
     merged.extend(right)
     return merged, inversion
 
-def main ():
+if __name__ == '__main__':
     array = [8, 7, 3, 10, 1, 6, 4, 1, 9, 2, 11]
     print("Array =", array)
     _, inversion = merge_sort(array)
     print("Количество инверсий в массиве =", inversion)
-
-
-if __name__ == '__main__':
-    main()
