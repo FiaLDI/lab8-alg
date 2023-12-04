@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr, 0
@@ -27,6 +28,7 @@ def merge(left, right):
     merged += left[i:]
     merged += right[j:]
     return merged, inversion
+
 
 if __name__ == '__main__':
     array = [8, 7, 3, 10, 1, 6, 4, 1, 9, 2, 11]
