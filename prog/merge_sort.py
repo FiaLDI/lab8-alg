@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr, 0
+def merge_sort(list_of_nums):
+    if len(list_of_nums) <= 1:
+        return list_of_nums, 0
     else:
-        m = len(arr) // 2
-        left, inversion_left = merge_sort(arr[:m])
-        right, inversion_right = merge_sort(arr[m:])
+        m = len(list_of_nums) // 2
+        left, inversion_left = merge_sort(list_of_nums[:m])
+        right, inversion_right = merge_sort(list_of_nums[m:])
         merged, inversion_merge = merge(left, right)
         return merged, inversion_left + inversion_right + inversion_merge
 
@@ -31,7 +31,7 @@ def merge(left, right):
 
 
 if __name__ == '__main__':
-    array = [8, 7, 3, 10, 1, 6, 4, 1, 9, 2, 11]
-    print("Array =", array)
-    _, inversion = merge_sort(array)
+    list_of_nums = [8, 7, 3, 10, 1, 6, 4, 1, 9, 2, 11]
+    print("Array =", list_of_nums)
+    _, inversion = merge_sort(list_of_nums)
     print("Количество инверсий в массиве =", inversion)
