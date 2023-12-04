@@ -32,6 +32,6 @@ def merge(left, right):
 
 if __name__ == '__main__':
     list_of_nums = [8, 7, 3, 10, 1, 6, 4, 1, 9, 2, 11]
-    print("Array =", list_of_nums)
+    print("list_of_nums =", list_of_nums)
     _, inversion = merge_sort(list_of_nums)
-    print("Количество инверсий в массиве =", inversion)
+    print("Количество инверсий в списке =", inversion)
