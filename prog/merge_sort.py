@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from collections import deque
-
-
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr, 0
@@ -11,21 +8,24 @@ def merge_sort(arr):
         m = len(arr) // 2
         left, inversion_left = merge_sort(arr[:m])
         right, inversion_right = merge_sort(arr[m:])
-        merged, inversion_merge = merge(deque(left), deque(right))
+        merged, inversion_merge = merge(left, right)
         return merged, inversion_left + inversion_right + inversion_merge
 
 
 def merge(left, right):
     merged = []
     inversion = 0
-    while left and right:
-        if left[0] <= right[0]:
-            merged.append(left.popleft())
+    i, j = 0, 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            merged.append(left[i])
+            i += 1
         else:
-            merged.append(right.popleft())
-            inversion += len(left)
-    merged.extend(left)
-    merged.extend(right)
+            merged.append(right[j])
+            inversion += len(left) - i
+            j += 1
+    merged += left[i:]
+    merged += right[j:]
     return merged, inversion
 
 if __name__ == '__main__':
